@@ -1,0 +1,104 @@
+<div class="jumbotron bg-dark rounded-0">
+  <video
+    class="jbp_video"
+    src="https://cdn.pixabay.com/video/2025/02/10/257593_large.mp4"
+    autoplay
+    muted
+    loop
+  ></video>
+  <!-- <img class="jbp_img" src="https://i.pinimg.com/1200x/53/c4/64/53c4649879265d16882abe51827f055d.jpg"> -->
+  <div class="jbp_content container-fluid py-5">
+    <h1 class="display-5 fw-bold">Piyaphat Prayoonphat</h1>
+    <p class="col-md-8 fs-4">
+      Using a series of utilities, you can create this jumbotron, just like the
+      one in previous versions of Bootstrap. Check out the examples below for
+      how you can remix and restyle it to your liking.
+    </p>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Piyaphat</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="./">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="page1.html">Page1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="page2.html">Page2</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link disabled"
+            href="#"
+            tabindex="-1"
+            aria-disabled="true"
+            >Disabled</a>
+        </li>
+      </ul>
+      <a class="navbar-brand" href="#" id="output"></a>
+      <a href="login.html" id="btn_login">
+        <button class="btn btn-warning" type="">Login</button>
+      </a> &nbsp; &nbsp;
+      <a href="register.html" id="btn_register">
+        <button class="btn btn-success" type="">Register</button>
+      </a> &nbsp; &nbsp;
+      <a href="#" id="btn_logout">
+        <button class="btn btn-danger" type="" onclick="click_logout()">Logout</button>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  if (sessionStorage.getItem('name') != null) {
+    document.getElementById("output").innerHTML =
+      sessionStorage.getItem("name") + ' online...';
+    document.getElementById("btn_login").innerHTML = '';
+    document.getElementById("btn_register").innerHTML = '';
+  } else {
+    document.getElementById("btn_logout").innerHTML = '';
+  }
+
+  function click_logout() {
+    sessionStorage.removeItem("login status");
+    sessionStorage.removeItem("name");
+    document.getElementById("output").innerHTML = '';
+    window.location.href = "./";
+  }
+</script>

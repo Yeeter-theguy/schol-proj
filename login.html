@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            $("head").load("header.html");
+            $("#body").load("body.html");
+            $("#endbody").load("endbody.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="body"></div>
+
+    <div class="d-flex flex-wrap">
+
+        <div class="card mt-5 mx-auto" style="width: 40rem;">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthfvnext.bing.com%2Fth%2Fid%2FOIP.E4GsUobLugV7MWy3h7kpkwHaEK%3Fr%3D0%26cb%3Dthfvnextfalcon2%26pid%3DApi&f=1&ipt=fba2e24b9df3f22fb14cba3b1a3e56070d7c2b423e5bcee2c8649418428b4bf8&ipo=images"
+                alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Student Information</h5>
+                <p class="card-text text-primary fs-2 fw-bold">
+
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" id="sname">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" id="spassword">
+                </div>
+                <button type="submit" class="btn btn-success" onclick="click_Submit()">Submit</button>
+                <button type="reset" class="btn btn-success" onclick="click_Reset()">Reset</button>
+
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="endbody"></div>
+    <script>
+        if (sessionStorage.getItem('name') != null) {
+            location.href = './';
+        }
+</script>
+    <script>
+        function click_Submit() {
+            if (document.getElementById("sname").value == localStorage.getItem('name') &&
+            document.getElementById("spassword").value == localStorage.getItem('password')
+        ) {
+            alert("Login successful");
+            sessionStorage.setItem("login status", "ok");
+            sessionStorage.setItem('name', localStorage.getItem('name'));
+            location.href = './'
+        } else {
+            alert("Login failed");
+            }
+            alert(decodeURIComponent(escape(localStorage.getItem('name'))));
+        }
+        function click_Reset() {
+            document.getElementById("sname").value = '';
+            document.getElementById("spassword").value = '';
+        }
+    </script>
+</body>
+
+</html>

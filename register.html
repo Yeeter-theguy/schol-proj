@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            $("head").load("header.html");
+            $("#body").load("body.html");
+            $("#endbody").load("endbody.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="body"></div>
+
+
+
+    <div class="d-flex flex-wrap">
+
+        <div class="card mt-5 mx-auto" style="width: 40rem;">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthfvnext.bing.com%2Fth%2Fid%2FOIP.E4GsUobLugV7MWy3h7kpkwHaEK%3Fr%3D0%26cb%3Dthfvnextfalcon2%26pid%3DApi&f=1&ipt=fba2e24b9df3f22fb14cba3b1a3e56070d7c2b423e5bcee2c8649418428b4bf8&ipo=images"
+                alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Student Information</h5>
+                <p class="card-text text-primary fs-2 fw-bold">
+
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" id="sname">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" id="sphone">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" id="semail">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" id="spassword">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="sconfirmpassword">
+                </div>
+                <button type="button" class="btn btn-success" onclick="click_Submit()">Submit</button>
+                <button type="button" class="btn btn-warning" onclick="click_Reset()">Reset</button>
+
+                </p>
+
+                <div class="alert alert-success" role="alert">
+            
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function click_Submit() {
+            const name = document.getElementById('sname').value.trim();
+            const phone = document.getElementById('sphone').value.trim();
+            const email = document.getElementById('semail').value.trim();
+            const password = document.getElementById('spassword').value;
+            const confirmPassword = document.getElementById('sconfirmpassword').value;
+
+            if (password === confirmPassword) {
+                localStorage.setItem('name', btoa(unescape(encodeURIComponent(name))));
+                localStorage.setItem('phone', btoa(unescape(encodeURIComponent(phone))));
+                localStorage.setItem('email', btoa(unescape(encodeURIComponent(email))));
+                localStorage.setItem('password', btoa(unescape(encodeURIComponent(password))));
+
+                alert('Registration successful');
+            } else {
+                alert('Passwords do not match');
+            }
+        }
+        function click_Reset() {
+            document.getElementById('sname').value = '';
+            document.getElementById('sphone').value = '';
+            document.getElementById('semail').value = '';
+            document.getElementById('spassword').value = '';
+            document.getElementById('sconfirmpassword').value = '';
+        }
+    </script>
+
+    <div id="endbody"></div>
+</body>
+
+</html>
